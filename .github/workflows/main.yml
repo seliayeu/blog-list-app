@@ -18,12 +18,16 @@ jobs:
             node-version: '12.x'
         - name: npm install
           run: npm install
-        - name: test
+        - name: test backend
           run: npm run test 
+          env:
+            TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
         - name: build
           run: npm run build
         - name: e2e tests
           uses: cypress-io/github-action@v2
+          env:
+            TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           with:
             command: npm run test:e2e
             start: npm run start-test
