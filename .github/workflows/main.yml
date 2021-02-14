@@ -29,6 +29,7 @@ jobs:
           env:
             TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
             PORT: 8080
+            SECRET: ${{ secrets.SECRET }}
           with:
             command: npm run test:e2e
             start: npm run start-test
