@@ -16,9 +16,25 @@ jobs:
           with:
             node-version: '12.x'
         - name: npm install
-          run: npm install        
+          run: npm install      
+        - name: lint
+          run: npm run eslint  
+        - name: test backend
+          run: npm run test 
+          env:
+            TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
         - name: build
           run: npm run build
+        - name: e2e tests
+          uses: cypress-io/github-action@v2
+          env:
+            TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+            PORT: 8080
+            SECRET: ${{ secrets.SECRET }}
+          with:
+            command: npm run test:e2e
+            start: npm run start-test
+            wait-on: http://localhost:8080
         - name: deploy
           if: ${{ github.event_name == 'push' && (contains(toJson(join(github.event.commits.*.message)), '#skip') != true )}} 
           uses: akhileshns/heroku-deploy@v3.11.10
@@ -31,4 +47,10 @@ jobs:
           env: 
             HD_MONGODB_URI: ${{ secrets.MONGODB_URI }}
             HD_SECRET: ${{ secrets.SECRET }}
-            
+        - uses: actions/checkout@v2
+        - name: Bump version and push tag
+          if: ${{ github.event_name == 'push' && (contains(toJson(join(github.event.commits.*.message)), '#skip') != true )}} 
+          uses: anothrNick/github-tag-action@1.33.0
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            DEFAULT_BUMP: patch

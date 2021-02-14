@@ -10,10 +10,10 @@ test('renders title of blog and author by default', () => {
     url: 'green_mean.machine',
   }
 
-  const tempFunc1 = (blog) => {
+  const tempFunc1 = () => {
   }
 
-  const tempFunc2 = (blog) => {
+  const tempFunc2 = () => {
   }
 
   const user = {
@@ -39,10 +39,10 @@ test('clicking show reveals hidden components', () => {
     url: 'green_mean.machine',
   }
 
-  const tempFunc1 = (blog) => {
+  const tempFunc1 = () => {
   }
 
-  const tempFunc2 = (blog) => {
+  const tempFunc2 = () => {
   }
 
   const user = {
@@ -70,7 +70,7 @@ test('clicking the like button twice triggers the event handler twice', () => {
     url: 'green_mean.machine',
   }
 
-  const tempFunc1 = (blog) => {
+  const tempFunc1 = () => {
   }
 
   const mockIncrLikes = jest.fn()
