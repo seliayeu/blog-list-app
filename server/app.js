@@ -5,6 +5,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 const cors = require('cors');
+const config = require('./utils/config');
 const logger = require('./utils/logger');
 const blogRouter = require('./controllers/blogs');
 const usersRouter = require('./controllers/users');
@@ -13,9 +14,9 @@ const commentsRouter = require('./controllers/comments');
 const middleware = require('./middleware/middleware');
 require('dotenv').config();
 
-logger.info('connecting to', process.env.MONGODB_URI);
+logger.info('connecting to', config.MONGODB_URI);
 
-mongoose.connect(process.env.MONGODB_URI,
+mongoose.connect(config.MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

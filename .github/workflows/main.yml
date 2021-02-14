@@ -29,5 +29,5 @@ jobs:
             healthcheck: "https://radiant-beach-89717.herokuapp.com/"
             branch: "master"
           env: 
-            MONGODB_URI: ${{ secrets.MONGODB_URI }}
+            HD_MONGODB_URI: ${{ secrets.MONGODB_URI }}
             
