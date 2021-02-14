@@ -7,21 +7,11 @@ on:
   pull_request:
     branches: [master]
     types: [opened, synchronize]
-
 jobs:
   deployment_pipeline:
       runs-on: ubuntu-18.04
       steps:
         - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-          with:
-            node-version: '12.x'
-        - name: npm install
-          run: npm install
-        - name: test backend
-          run: npm run test 
-          env:
-            TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
         - name: build
           run: npm run build
         - name: e2e tests
