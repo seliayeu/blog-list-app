@@ -34,3 +34,14 @@ jobs:
             command: npm run test:e2e
             start: npm run start-test
             wait-on: http://localhost:8080
+        - name: deploy
+          if: ${{ github.event_name == 'push' && (contains(toJson(join(github.event.commits.*.message)), '#skip') != true )}} 
+          uses: akhileshns/heroku-deploy@v3.10.9
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "radiant-beach-89717"
+            heroku_email: "dan.seliayeu@gmail.com"
+            healthcheck: "https://radiant-beach-89717.herokuapp.com/"
+          env: 
+            MONGODB_URI: ${{ secrets.MONGODB_URI }}
+            
