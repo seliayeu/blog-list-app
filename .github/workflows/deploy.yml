@@ -27,6 +27,7 @@ jobs:
             heroku_app_name: "radiant-beach-89717"
             heroku_email: "dan.seliayeu@gmail.com"
             healthcheck: "https://radiant-beach-89717.herokuapp.com/"
+            branch: "master"
           env: 
             MONGODB_URI: ${{ secrets.MONGODB_URI }}
             
