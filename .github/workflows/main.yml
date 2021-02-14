@@ -30,4 +30,5 @@ jobs:
             branch: "master"
           env: 
             HD_MONGODB_URI: ${{ secrets.MONGODB_URI }}
+            HD_SECRET: ${{ secrets.SECRET }}
             
