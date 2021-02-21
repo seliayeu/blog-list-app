@@ -1,0 +1,7 @@
+Assuming that the group is using Python, the most popular linting tools seem to be pylint and and flake8. For testing, Python has a built-in tool called unittest, though there are also other popular libraries like pytest and nose2. Building Python, for example turning it into a single executable, can be done via PyInstaller, or through a combination of Cython and py2exe, among other less popular options.
+
+Other popular CI tools include Buddy, Gitlab, Semaphore, Buildbot and Codeship. 
+
+Without diving into language specifics, there are some obvious differences between self-hosting CI and using one of the many aforementioned cloud-based alternatives. One is the obvious difference in your ability to have control over the environment and software: if you run your CI environment locally, what is on that environment is completely in your control and can be changed without having to connect to any cloud. In exchange for this local hosting, though, you trade much convenience and ability to collaborate, which may be quite integral to certain projects.
+
+Diving into language specifics, the most important thing is whether or not the cloud-based service offers sufficient support for the tools necessary to get your project up and running. If some integral tool cannot be obtained on a cloud-based environment, then it may be worth foregoing the ease of said service unless another alternative can be easily put into action.
