@@ -1,0 +1,1 @@
+Webpack configuration adapted from https://github.com/smartlyio/full-stack-open-pokedex
