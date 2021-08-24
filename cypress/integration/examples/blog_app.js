@@ -74,20 +74,6 @@ describe('Blog app', function() {
       cy.contains('likes 1')
     })
 
-    it('a blog\'s creator can delete it', function() {
-      const blog = {
-        title: 'the blog... yes.. the blog',
-        author: 'michael michaelson',
-        url: 'www.indeedIndeedIndeedIndeedIndeed.com',
-      }
-
-      cy.get('#togglable-show').click()
-      cy.createBlog(blog)
-      cy.get('#show-blog-info').click()
-      cy.get('#remove-blog').click()
-      cy.get('#root').not().contains(`${blog.title} by ${blog.author}`)
-    })
-
     it('user who did not create blog cannot delete it', function() {
       const blog = {
         title: 'the blog... yes.. the blog',
