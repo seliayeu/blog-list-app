@@ -72,7 +72,7 @@ const App = () => {
 
     try {
       console.log('testttt')
-      await registerService.login({ username, password })
+      await registerService.register({ username, password })
       setUsername('')
       setPassword('')
       setNotification('registered successfully. please log in')
