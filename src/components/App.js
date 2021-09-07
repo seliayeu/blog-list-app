@@ -71,6 +71,7 @@ const App = () => {
     console.log('registering user', username)
 
     try {
+      console.log('testttt')
       await registerService.login({ username, password })
       setUsername('')
       setPassword('')
@@ -80,7 +81,7 @@ const App = () => {
         setNotification(null)
       }, 5000)
     } catch (exception) {
-      setNotification('failed to log in')
+      setNotification('failed to register')
       setErrorStatus(true)
       setTimeout(() => {
         setNotification(null)
