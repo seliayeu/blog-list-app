@@ -43,7 +43,6 @@ blogsRouter.post('/', async (request, response) => {
 });
 
 blogsRouter.delete('/:id', async (request, response) => {
-  console.log('brrrr');
   const token = request.token;
   console.log(token);
 

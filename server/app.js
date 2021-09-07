@@ -40,7 +40,6 @@ app.use('/api/login', loginRouter);
 app.use('/', commentsRouter);
 
 if (process.env.NODE_ENV === 'test') {
-  console.log('poggers');
   const testingRouter = require('./controllers/tests');
   app.use('/api/testing', testingRouter);
 }
