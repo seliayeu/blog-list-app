@@ -30,6 +30,7 @@ const LoginForm = ({
       />
     </div>
     <button id='login-button' type='submit'>login</button>
+    <button id='register-button' type='submit'>register</button>
   </form>
 )
 

@@ -6,6 +6,7 @@ import BlogForm from './BlogForm'
 import LoginForm from './LoginForm'
 import blogService from '../util/services/blogs'
 import loginService from '../util/services/login'
+import registerService from '../util/services/register'
 
 const App = () => {
   const [blogs, setBlogs] = useState([])
@@ -62,6 +63,29 @@ const App = () => {
       setTimeout(() => {
         setNotification(null)
       }, 5000)
+    }
+  }
+
+  const handleRegister = async (event) => {
+    event.preventDefault()
+    console.log('registering user', username)
+
+    try {
+      await registerService.login({ username, password })
+      setUsername('')
+      setPassword('')
+      setNotification('registered successfully. please log in')
+      setErrorStatus(false)
+      setTimeout(() => {
+        setNotification(null)
+      }, 5000)
+    } catch (exception) {
+      setNotification('failed to log in')
+      setErrorStatus(true)
+      setTimeout(() => {
+        setNotification(null)
+      }, 5000)
+
     }
   }
 
@@ -148,6 +172,7 @@ const App = () => {
             password={password}
             setPassword={setPassword}
             handleLogin={handleLogin}
+            handleRegister={handleRegister}
           /> :
           <div>
             <div>
